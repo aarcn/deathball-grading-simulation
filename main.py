@@ -29,16 +29,16 @@ def sim_til_s_grade():
     return attempts
 
 
-def generate_frequency_table(num_simulations):
-    results = [sim_til_s_grade() for _ in range(num_simulations)]
+def freq_table(num_of_simulations):
+    results = [sim_til_s_grade() for _ in range(num_of_simulations)]
     frequency_table = Counter(results)
 
-    print(f"Frequency table after {num_simulations} simulations:")
+    print(f"Frequency table after {num_of_simulations} simulations:")
     print("Attempts | Frequency | Percentage")
     print("----------------------------------")
     cumulative_percentage = 0
     for attempts, frequency in sorted(frequency_table.items()):
-        percentage = (frequency / num_simulations) * 100
+        percentage = (frequency / num_of_simulations) * 100
         print(f"{attempts:<5} | {frequency:<9} | {percentage:.5f}%")
 
         if attempts <= 59:
@@ -47,4 +47,4 @@ def generate_frequency_table(num_simulations):
     print("\nCumulative percentage (1 to 59):", f"{cumulative_percentage:.5f}%")
 
 
-generate_frequency_table(num_simulations)
+freq_table(num_simulations)
